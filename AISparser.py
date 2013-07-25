@@ -4,14 +4,24 @@ from bs4 import BeautifulSoup
 import requests
 import re
 
+def is_number(s):
+    """Checks if a string is a number"""
+    try:
+        float(s)
+        return True
+    except ValueError:
+        return False
+
 def ship_src2data(src):
     """Returns ship data parsed from the source code of a ship page
     """
 
     fields = """
-LOA (Length Overall)
-Beam
-Draft (max)
+Length x Breadth:
+Draught:
+LOA (Length Overall):
+Beam:
+Draft (max):
     """.strip().splitlines()
     soup = BeautifulSoup(src)
     boat_data = {}
@@ -23,22 +33,25 @@ Draft (max)
         # Empty field http://www.marinetraffic.com/ais/shipdetails.aspx?MMSI=538004700
         # No field    http://www.marinetraffic.com/ais/shipdetails.aspx?MMSI=413854231
         if len(tags) != 1:
-            return None
+            continue
         string = tags[0].nextSibling.string
         if string.isspace() or not string:
-            return None
-        value = float(string)
+            continue
+        elif is_number(string):
+            value = float(string)
+            if abs(value) < 0.1:
+                continue
+        else:
+            value = string
         boat_data[field] = value
+
     return boat_data
 
 root_URL = 'http://www.marinetraffic.com/ais/'
-#ship_URL = "http://www.marinetraffic.com/ais/shipdetails.aspx?imo=9524451"
-#src = requests.get(URL).text
 all_ships_URL = 'http://www.marinetraffic.com/ais/datasheet.aspx?datasource=SHIPS_CURRENT&alpha=A&level0=200'
 URL = all_ships_URL
 src = requests.get(URL).text
 soup = BeautifulSoup(src)
-#tags = soup.find_all('a')
 tags = soup.find_all(href=re.compile("shipdetails"))
 names = [tag.string for tag in tags]
 URLs = [root_URL + tag.get('href') for tag in tags]
