@@ -97,33 +97,32 @@ def get_page_no(src):
 #def main():
 if True:
     root_URL = 'http://www.marinetraffic.com/ais/'
-    seed_URL = 'datasheet.aspx?datasource=SHIPS_CURRENT&alpha=A&level0=200'
 
-    # Parses the downloaded ship pages
-    folder = 'ships'
-    ship_local_paths = [os.path.join(folder, filename)
-        for (dirpath, dirnames, filenames) in os.walk(folder)
-        for filename in filenames]
-    ships_data = []
-    for ship_local_path in ship_local_paths:
-        with open(ship_local_path, 'r') as fid:
-            ship_src = fid.read().decode('utf8')
-        ship_data = get_ship_data(ship_src)
-        print ship_local_path, len(ship_data.items())
-        ships_data.append(ship_data)
-
-    ships_data = [x for x in ships_data if len(x.items()) == 5]
-    plt.close('all')
-    plt.figure()
-    for ship_data in ships_data:
-        length = ship_data['LOA (Length Overall):']
-        draft = ship_data['Draft (max):']
-        plt.plot(length, draft, 'r.')
-    plt.show()
+##    # Parses the downloaded ship pages
+##    folder = 'ships'
+##    ship_local_paths = [os.path.join(folder, filename)
+##        for (dirpath, dirnames, filenames) in os.walk(folder)
+##        for filename in filenames]
+##    ships_data = []
+##    for ship_local_path in ship_local_paths:
+##        with open(ship_local_path, 'r') as fid:
+##            ship_src = fid.read().decode('utf8')
+##        ship_data = get_ship_data(ship_src)
+##        print ship_local_path, len(ship_data.items())
+##        ships_data.append(ship_data)
+##
+##    ships_data = [x for x in ships_data if len(x.items()) == 5]
+##    plt.close('all')
+##    plt.figure()
+##    for ship_data in ships_data:
+##        length = ship_data['LOA (Length Overall):']
+##        draft = ship_data['Draft (max):']
+##        plt.plot(length, draft, 'r.')
+##    plt.show()
 
 
 ##    # Downloads all the ship pages from downloaded catalog pages
-##    folder = 'A'
+##    folder = 'B'
 ##    catalog_files = [os.path.join(folder, filename)
 ##        for (dirpath, dirnames, filenames) in os.walk(folder)
 ##        for filename in filenames]
@@ -136,25 +135,32 @@ if True:
 ##                print ship_local_path, 'skipped because file already exists'
 ##                continue
 ##            ship_src = get_src(root_URL + ship_URL)
-##            with open(ship_local_path, 'w') as fid:
-##                fid.write(ship_src.encode('utf8'))
-##            print ship_URL, ship_name, 'created'
+##            try:
+##                with open(ship_local_path, 'w') as fid:
+##                    fid.write(ship_src.encode('utf8'))
+##                    print ship_URL, ship_name, 'created'
+##            except IOError:
+##                print ship_name, 'skipped due to IOError'
 
 
 ##    ship_links = [x for src in catalog_sources for link in get_ship_links]
 ##    print files
 
-##    # Goes down the catalog of ships beginning with the same alphabet
-##    next_URL = seed_URL
-##    while True:
-##        src = get_src(root_URL + next_URL)
-##        page_no = get_page_no(src)
-##        with open('A/' + page_no, 'w') as fid:
-##            fid.write(src.encode('utf8'))
-##        next_URL = get_next_page(src)
-##        print next_URL
-##        if not next_URL:
-##            break
+    foo = 'http://www.marinetraffic.com/ais/datasheet.aspx?datasource=SHIPS_CURRENT&alpha='
+    alphabets = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    seed_URL = 'http://www.marinetraffic.com/ais/datasheet.aspx?datasource=SHIPS_CURRENT&alpha=C&mode='
+
+    # Goes down the catalog of ships beginning with the same alphabet
+    next_URL = seed_URL
+    while True:
+        src = get_src(seed_URL)
+        page_no = get_page_no(src)
+        with open('C/' + page_no, 'w') as fid:
+            fid.write(src.encode('utf8'))
+        next_URL = get_next_page(src)
+        print next_URL
+        if not next_URL:
+            break
 
 ##    for name, leaf_URL in get_ship_links(src):
 ##
