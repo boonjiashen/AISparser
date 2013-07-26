@@ -3,6 +3,9 @@
 from bs4 import BeautifulSoup
 import requests
 import re
+import os  # for os.walk
+import matplotlib.pyplot as plt
+import numpy as np
 
 def get_src(URL):
     """Returns the page source from a URL"""
@@ -59,36 +62,111 @@ Draft (max):
 ##      <img alt="Next page" border="0" height="11" src="icons/next.gif" width="9"/>
 ##     </a>
 
-#def main():
-if True:
-    root_URL = 'http://www.marinetraffic.com/ais/'
-    all_ships_URL = 'http://www.marinetraffic.com/ais/datasheet.aspx?datasource=SHIPS_CURRENT&alpha=A&level0=200'
-    URL = all_ships_URL
-    src = get_src(URL)
+def get_next_page(src):
+    """Returns the URL of the next page given a page source"""
+
+    soup = BeautifulSoup(src)
+    images = soup.find_all('img', alt='Next page')
+    if len(images) < 1:
+        return None
+    next_URL = images[0].parent.get('href')
+
+    return next_URL
+
+def get_ship_links(src):
+    """Returns a list of (ship_name, ship_URL) tuples parsed from a page"""
 
     soup = BeautifulSoup(src)
     tags = soup.find_all(href=re.compile("shipdetails"))
+    names = [tag.string for tag in tags]
+    URLs = [tag.get('href') for tag in tags]
 
-    # Find the URL of the next page
+    return zip(names, URLs)
 
-##    names = [tag.string for tag in tags]
-##    URLs = [root_URL + tag.get('href') for tag in tags]
+def get_page_no(src):
+    """Returns the page number of a ship catalog page source"""
+
+    soup = BeautifulSoup(src)
+    tags = soup.find_all('font',color="#800000",face="Tahoma")
+    assert len(tags) > 0
+    match = re.search('page(.*)/', tags[0].string)
+    page_no = match.group(1)
+
+    return page_no
+
+#def main():
+if True:
+    root_URL = 'http://www.marinetraffic.com/ais/'
+    seed_URL = 'datasheet.aspx?datasource=SHIPS_CURRENT&alpha=A&level0=200'
+
+    # Parses the downloaded ship pages
+    folder = 'ships'
+    ship_local_paths = [os.path.join(folder, filename)
+        for (dirpath, dirnames, filenames) in os.walk(folder)
+        for filename in filenames]
+    ships_data = []
+    for ship_local_path in ship_local_paths:
+        with open(ship_local_path, 'r') as fid:
+            ship_src = fid.read().decode('utf8')
+        ship_data = get_ship_data(ship_src)
+        print ship_local_path, len(ship_data.items())
+        ships_data.append(ship_data)
+
+    ships_data = [x for x in ships_data if len(x.items()) == 5]
+    plt.close('all')
+    plt.figure()
+    for ship_data in ships_data:
+        length = ship_data['LOA (Length Overall):']
+        draft = ship_data['Draft (max):']
+        plt.plot(length, draft, 'r.')
+    plt.show()
+
+
+##    # Downloads all the ship pages from downloaded catalog pages
+##    folder = 'A'
+##    catalog_files = [os.path.join(folder, filename)
+##        for (dirpath, dirnames, filenames) in os.walk(folder)
+##        for filename in filenames]
+##    for catalog_file in catalog_files:
+##        with open(catalog_file , 'r') as fid:
+##            catalog_src = fid.read().decode('utf8')
+##        for ship_name, ship_URL in get_ship_links(catalog_src):
+##            ship_local_path = os.path.join('ships', ship_name)
+##            if os.path.isfile(ship_local_path):
+##                print ship_local_path, 'skipped because file already exists'
+##                continue
+##            ship_src = get_src(root_URL + ship_URL)
+##            with open(ship_local_path, 'w') as fid:
+##                fid.write(ship_src.encode('utf8'))
+##            print ship_URL, ship_name, 'created'
+
+
+##    ship_links = [x for src in catalog_sources for link in get_ship_links]
+##    print files
+
+##    # Goes down the catalog of ships beginning with the same alphabet
+##    next_URL = seed_URL
+##    while True:
+##        src = get_src(root_URL + next_URL)
+##        page_no = get_page_no(src)
+##        with open('A/' + page_no, 'w') as fid:
+##            fid.write(src.encode('utf8'))
+##        next_URL = get_next_page(src)
+##        print next_URL
+##        if not next_URL:
+##            break
+
+##    for name, leaf_URL in get_ship_links(src):
 ##
-##    found = False
-##    for name, URL in zip(names, URLs):
-####        is_PUSAN = name.find('PUSAN') != -1
-####        if is_PUSAN:
-####            found = True
-####        elif not found:
-####            continue
+##        # Drop names that are too short
 ##        if len(name) == 1:
 ##            continue
-##        src = get_src(URL)
-##        ship_data = get_ship_data(src)
+##
+##        ship_src = get_src(root_URL + leaf_URL)
+##        ship_data = get_ship_data(ship_src)
 ##        print name, ship_data
 ##
-##        with open(name, 'w') as fid:
+##        with open('ships/' + name, 'w') as fid:
 ##            fid.write(src.encode('utf8'))
 ##        with open(name, 'r') as fid:
 ##            incoming_src = fid.read().decode('utf8')
-##        break
