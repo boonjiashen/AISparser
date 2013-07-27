@@ -1,0 +1,103 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    	
+		<link rel="stylesheet" href="http://cdn.marinetraffic.com/ais/wizard.css" type="text/css">
+		
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    		
+		<title>WAPPEN VON MUNCHEN - Vessel's Details and Current Position - 9255816 - 636092108 </title>
+	    <meta name="Description" content="WAPPEN VON MUNCHEN Oil/chemical tanker IMO:9255816, MMSI:636092108, Call Sign:A8XB5. Ship's details and real-time data: maximum and average speed, last position, port arrivals, vessel's itineraries, tracking and photos"/>
+	    <meta name="Keywords" content="AIS, WAPPEN VON MUNCHEN, 9255816, VTS, boat, ship, Oil/chemical tanker, shipping, vessel, A8XB5, tracking, photos, pictures, photograph, map, longitude, 
+	    lattitude, traffic, tracker, location, coordinates, Navire,Brod,Schip,Statek,Schiff,??,Navio,Barco,Gemi,Fartyg,?????,Lo?,Skip,Nave,Alus,?????,??????,?,Skib,	???? ,?????,???????,Nava,??,????,	Skip,Ku?is, course, heading, route, track, footprint,
+	    automatic identification system, navigation, naval chart, marine, arrivals, departures, ETA, estimated arrivals,
+	    Vessel Traffic Management Information System"/>
+    
+
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-33656897-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+
+    <script type='text/javascript'>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+        (function () {
+            var gads = document.createElement('script');
+            gads.async = true;
+            gads.type = 'text/javascript';
+            var useSSL = 'https:' == document.location.protocol;
+            gads.src = (useSSL ? 'https:' : 'http:') +
+            '//www.googletagservices.com/tag/js/gpt.js';
+            var node = document.getElementsByTagName('script')[0];
+            node.parentNode.insertBefore(gads, node);
+        })();
+</script>
+
+<script type='text/javascript'>
+    googletag.cmd.push(function () {
+        googletag.defineSlot('/15222045/mt_vdetail_atf_728x90', [728, 90], 'div-gpt-ad-1352378520155-1').addService(googletag.pubads());
+        googletag.pubads().enableSingleRequest();
+        googletag.enableServices();
+    });
+</script>
+
+
+</head>
+
+
+<body>
+<div id='logo'><img src='icons/shipping_small.gif' /></div><div id='menuholder'><div id='title'>MarineTraffic.com</div><div id='holder0'><div id='selected'><a href='default.aspx?level0=100' target='_top'>Live Map</a></div><div id='notselected'><a href='datasheet.aspx?datasource=SHIPS_CURRENT&alpha=A&level0=200' target='_top'>Vessels</a></div><div id='notselected'><a href='datasheet.aspx?datasource=PORTS_CURRENT&PORT_TYPE=Port&level0=300' target='_top'>Ports</a></div><div id='notselected'><a href='gallery.aspx?level0=400' target='_top'>Gallery</a></div><div style='clear:both;'></div></div><div id='holder1'><div onclick="selectlanguage();" style="float:right;cursor:pointer;"><img src="flags/lang/en.png" />&nbsp;English <img src="icons/arrowdown.gif"/>&nbsp;</div><div id="languagebox"><a href="http://www.marinetraffic.com/ais/shipdetails.aspx?MMSI=636092108"><img src="/ais/icons/blank.gif" class="flag flag-gb" title="English"/> English</a><br/><a href="http://www.marinetraffic.com/ais/ar/shipdetails.aspx?MMSI=636092108"><img src="/ais/icons/blank.gif" class="flag flag-sa" title="Arabic"/> العربية</a><br/><a href="http://www.marinetraffic.com/ais/bg/shipdetails.aspx?MMSI=636092108"><img src="/ais/icons/blank.gif" class="flag flag-bg" title="Bulgarian"/> българска</a><br/><a href="http://www.marinetraffic.com/ais/cn/shipdetails.aspx?MMSI=636092108"><img src="/ais/icons/blank.gif" class="flag flag-cn" title="Chinese"/> 中文</a><br/><a href="http://www.marinetraffic.com/ais/tw/shipdetails.aspx?MMSI=636092108"><img src="/ais/icons/blank.gif" class="flag flag-tw" title="Chinese(Traditional)"/> 中文(繁體)</a><br/><a href="http://www.marinetraffic.com/ais/cz/shipdetails.aspx?MMSI=636092108"><img src="/ais/icons/blank.gif" class="flag flag-cz" title="Czech"/> Čeština</a><br/><a href="http://www.marinetraffic.com/ais/dk/shipdetails.aspx?MMSI=636092108"><img src="/ais/icons/blank.gif" class="flag flag-dk" title="Danish"/> Dansk</a><br/><a href="http://www.marinetraffic.com/ais/de/shipdetails.aspx?MMSI=636092108"><img src="/ais/icons/blank.gif" class="flag flag-de" title="German"/> Deutsch</a><br/><a href="http://www.marinetraffic.com/ais/gr/shipdetails.aspx?MMSI=636092108&language=_GR"><img src="/ais/icons/blank.gif" class="flag flag-gr" title="Greek"/> Ελληνικά</a><br/><a href="http://www.marinetraffic.com/ais/ee/shipdetails.aspx?MMSI=636092108"><img src="/ais/icons/blank.gif" class="flag flag-ee" title="Estonian"/> Eesti keel</a><br/><a href="http://www.marinetraffic.com/ais/es/shipdetails.aspx?MMSI=636092108"><img src="/ais/icons/blank.gif" class="flag flag-es" title="Spanish"/> Español</a><br/><a href="http://www.marinetraffic.com/ais/ir/shipdetails.aspx?MMSI=636092108"><img src="/ais/icons/blank.gif" class="flag flag-ir" title="Farsi-Persian"/> فارسی</a><br/><a href="http://www.marinetraffic.com/ais/fr/shipdetails.aspx?MMSI=636092108"><img src="/ais/icons/blank.gif" class="flag flag-fr" title="French"/> Français</a><br/><a href="http://www.marinetraffic.com/ais/ge/shipdetails.aspx?MMSI=636092108"><img src="/ais/icons/blank.gif" class="flag flag-ge" title="Georgian"/> ქართული</a><br/><a href="http://www.marinetraffic.com/ais/il/shipdetails.aspx?MMSI=636092108"><img src="/ais/icons/blank.gif" class="flag flag-il" title="Hebrew"/> עברית</a><br/><a href="http://www.marinetraffic.com/ais/hr/shipdetails.aspx?MMSI=636092108"><img src="/ais/icons/blank.gif" class="flag flag-hr" title="Croatian"/> Hrvatska</a><br/><a href="http://www.marinetraffic.com/ais/is/shipdetails.aspx?MMSI=636092108"><img src="/ais/icons/blank.gif" class="flag flag-is" title="Icelandic"/> Íslenska</a><br/><a href="http://www.marinetraffic.com/ais/it/shipdetails.aspx?MMSI=636092108"><img src="/ais/icons/blank.gif" class="flag flag-it" title="Italian"/> Italiano</a><br/><a href="http://www.marinetraffic.com/ais/jp/shipdetails.aspx?MMSI=636092108"><img src="/ais/icons/blank.gif" class="flag flag-jp" title="Japanese"/> 日本語</a><br/><a href="http://www.marinetraffic.com/ais/lv/shipdetails.aspx?MMSI=636092108"><img src="/ais/icons/blank.gif" class="flag flag-lv" title="Latvian"/> Latvijas</a><br/><a href="http://www.marinetraffic.com/ais/nl/shipdetails.aspx?MMSI=636092108"><img src="/ais/icons/blank.gif" class="flag flag-nl" title="Dutch"/> Nederlands</a><br/><a href="http://www.marinetraffic.com/ais/no/shipdetails.aspx?MMSI=636092108"><img src="/ais/icons/blank.gif" class="flag flag-no" title="Norwegian"/> Norsk</a><br/><a href="http://www.marinetraffic.com/ais/pl/shipdetails.aspx?MMSI=636092108"><img src="/ais/icons/blank.gif" class="flag flag-pl" title="Polish"/> Polska</a><br/><a href="http://www.marinetraffic.com/ais/pt/shipdetails.aspx?MMSI=636092108"><img src="/ais/icons/blank.gif" class="flag flag-pt" title="Portuguese"/> Português</a><br/><a href="http://www.marinetraffic.com/ais/ro/shipdetails.aspx?MMSI=636092108"><img src="/ais/icons/blank.gif" class="flag flag-ro" title="Romanian"/> Română</a><br/><a href="http://www.marinetraffic.com/ais/ru/shipdetails.aspx?MMSI=636092108"><img src="/ais/icons/blank.gif" class="flag flag-ru" title="Russian"/> Русский</a><br/><a href="http://www.marinetraffic.com/ais/rs/shipdetails.aspx?MMSI=636092108"><img src="/ais/icons/blank.gif" class="flag flag-rs" title="Serbian"/> Srbski</a><br/><a href="http://www.marinetraffic.com/ais/si/shipdetails.aspx?MMSI=636092108"><img src="/ais/icons/blank.gif" class="flag flag-si" title="Slovenian"/> Slovenščina</a><br/><a href="http://www.marinetraffic.com/ais/fi/shipdetails.aspx?MMSI=636092108"><img src="/ais/icons/blank.gif" class="flag flag-fi" title="Finnish"/> Suomi</a><br/><a href="http://www.marinetraffic.com/ais/se/shipdetails.aspx?MMSI=636092108"><img src="/ais/icons/blank.gif" class="flag flag-se" title="Swedish"/> Svenska</a><br/><a href="http://www.marinetraffic.com/ais/th/shipdetails.aspx?MMSI=636092108"><img src="/ais/icons/blank.gif" class="flag flag-th" title="Thai"/> ภาษาไทย</a><br/><a href="http://www.marinetraffic.com/ais/tr/shipdetails.aspx?MMSI=636092108"><img src="/ais/icons/blank.gif" class="flag flag-tr" title="Turkish"/> Türkçe</a><br/><a href="http://www.marinetraffic.com/ais/ua/shipdetails.aspx?MMSI=636092108"><img src="/ais/icons/blank.gif" class="flag flag-ua" title="Ukranian"/> Українська</a><br/><a href="translate.aspx">Add your Language</a><br/></div><script>function selectlanguage(){if(document.getElementById('languagebox').style.display=='block')document.getElementById('languagebox').style.display='none';else document.getElementById('languagebox').style.display='block';}</script><script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script><div style="float:right;cursor:pointer;"><input type='text' name='searchbox' id='searchbox' onclick='this.value="";' value='Search'/><img onclick="document.location='datasheet.aspx?datasource=SEARCH&KEYWORD=' + document.getElementById('searchbox').value;" src="icons/search.png"/>&nbsp;&nbsp;&nbsp;</div><script>$(function () {var cache_search = {},lastXhr; $('#searchbox').autocomplete({minLength: 3,source: function (request, response) {var term = request.term;if (term in cache_search) {response(cache_search[term]);return;}lastXhr = $.getJSON('searchjson.aspx', request, function (data, status, xhr) {cache_search[term] = data;if (xhr === lastXhr) {response(data);} }); },focus: function (event, ui) {$('#searchbox').val(ui.item.value);return false;},select: function (event, ui) {document.location=ui.item.id;return false;} }).data('autocomplete')._renderItem = function (ul, item) {var term = this.term.split(' ').join('|');var re = new RegExp('(' + term + ')', 'gi');var t = item.value.replace(re, '<b>$1</b>')+'<br/>'+item.desc;return $('<li></li>').data('item.autocomplete', item).append('<a>' + t + '</a>') .appendTo(ul); }; }); </script>&nbsp;|&nbsp;&nbsp;<a href='default.aspx?centerx=30&centery=25&zoom=2&level1=140' target='_top'>World Map</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;<a href='addyourarea.aspx?level1=150' target='_top'>Cover your Area</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;<a href='faq.aspx?level1=160' target='_top'>Frequently Asked Questions</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;<a href='services.aspx?level1=170' target='_top'>Services</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;</div></div><div style='clear:both;'></div><div id='detailtext'><h1>WAPPEN VON MUNCHEN</h1><a href="generic_form.aspx?mode=update&datasource=SHIP_WIKI&aa=56552">Contribute to this page</a>&nbsp;&nbsp;&nbsp;<a href="generic_form.aspx?mode=insert&datasource=FLEET&MMSI=636092108&SHIPNAME=WAPPEN VON MUNCHEN&aa=&referrer=%2fais%2fdatasheet.aspx%3fdatasource%3dFLEET">Add to My Fleet</a><hr/><h2>Vessel's Details</h2><b>Ship Type:</b> Oil/chemical tanker<br/><b>Year Built:</b> 2003<br/><b>Length x Breadth:</b> 117 m X 18 m<br/><b>Gross Tonnage:</b> 5145, <b>DeadWeight:</b> 8266 t<br/><b>Speed recorded (Max / Average):</b> 6.2 / 5.8 knots<br/><b>Flag:</b> Liberia [LR]&nbsp;<img style="border: 1px solid #aaa" src="flags/LR.gif"/><br/><b>Call Sign:</b> A8XB5<br/><b>IMO:</b> 9255816, <b>MMSI:</b> 636092108<br/><hr/><h2>Last Position Received</h2><b>Area:</b> Indian Ocean<br/><b>Latitude / Longitude:</b> <a href='default.aspx?mmsi=636092108&centerx=31.17086&centery=-29.81432&zoom=10&type_color=8'>-29.8143&deg; / 31.1709&deg; (Map)</a><br/><b>Speed/Course</b> 13.1 knots / 67˚<br/><b>Last Known Port:</b> </b><a href='default.aspx?centerx=31.0265&centery=-29.881&zoom=14'>DURBAN</a><br/><b>Info Received:</b> 0d 0h 0min ago <span style="font-size:8pt;">(AIS Source: 145)</span><br/><table><tr><td>&nbsp;<img src="shipicons/red1_65.png"/></td><td><a href='default.aspx?mmsi=636092108&centerx=31.17086&centery=-29.81432&zoom=10&type_color=8'><b>Current Vessel's Track</b></a></td></tr></table><a href='datasheet.aspx?datasource=ITINERARIES&MMSI=636092108'><b>Itineraries History</b></a><br/><hr/><h2>Voyage Related Info (Last Received)</h2><b>Draught:</b> 4.9 m<br/><b>Destination:</b> RICHARDS BAY<br/><b>ETA:</b> 2013-07-27 02:00<br/><b>Info Received:</b> 2013-07-26 20:30 (0d, 0h 17min ago)<br/><hr/><h2>Recent Port Calls:</h2><table width="100%"><tr><td class="header">Port</td><td class="header">Arrival (LT)</td><td class="header">Departure (LT)</td></tr><tr class="odd"><td>DURBAN</td><td>&nbsp;</td><td>2013-07-26 21:57</td></tr></table><a href="datasheet.aspx?datasource=V_ARR_DEP&MMSI=636092108">More...</a></br/><hr/><h2>Ex Names History</h2>No Records Found</br></div><div id='detailpic'><!-- mt_vdetail_atf_728x90 -->
+<div id='div-gpt-ad-1352378520155-1' style='width:728px; height:90px;'>
+<script type='text/javascript'>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1352378520155-1'); });
+</script>
+</div><br/><a class="data" href='showallphotos.aspx?imo=9255816'><img id="picholder" src='http://photos.marinetraffic.com/ais/showphoto.aspx?mmsi=636092108&imo=9255816' title='WAPPEN VON MUNCHEN'/><br/>Ship Photos: 17</a><br/><a target='_blank' href='http://photos.marinetraffic.com/ais/uploadphoto.aspx?mmsi=636092108&shipname=WAPPEN VON MUNCHEN&shiptype=Tanker'>Upload a photo</a><br/><br/><script type="text/javascript"><!--
+google_ad_client = "pub-1312707765089516";
+// 728x90 marinetraffic 
+if(document.body.clientWidth>=1200){google_ad_slot = "8483742781";
+google_ad_width = 728;
+google_ad_height = 90;}
+else{google_ad_slot = "2288518141";
+google_ad_width = 468;
+google_ad_height = 60;}
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<br/><br/></div><div style="clear:both"><div id="shipwiki"><hr/><h1>Vessel's Wiki</h1><a href="generic_form.aspx?mode=update&datasource=SHIP_WIKI&aa=56552">Edit this vessel</a>&nbsp;&nbsp;&nbsp;<a href="generic_form.aspx?mode=update&datasource=WIKI_SALES&aa=56552">Vessel for Sale?</a>&nbsp;&nbsp;&nbsp;<a href="wiki_history.aspx?mmsi=636092108&imo=636092108&shipname=WAPPEN VON MUNCHEN">History of changes</a><hr/><b>Ship Type:</b> TANKER<br/><b>Owner:</b> <a href="#" onclick="showhide('ownerinfo');return false;"></a><br/><b>Manager:</b> <a href="#" onclick="showhide('managerinfo');return false;"></a><br/><b>Built (Year/Month):</b> 2003/<br/><b>Builder:</b> <a href="#" onclick="showhide('builderinfo');return false;"></a><br/><b>Hull Number:</b> <br/><b>Class:</b> <br/><b>Service Status:</b> <br/><b>Year scrapped/lost:</b> <br/><hr/><h2>Tonnage & Dimensions</h2><b>GT (Gross Tonnage):</b> 5145<br/><b>NT (Net Tonnage):</b> <br/><b>DWT (Deadweight):</b> 8266<br/><b>Displacement:</b> <br/><b>LOA (Length Overall):</b> 117<br/><b>Beam:</b> 18<br/><b>Draft (max):</b> 5.4<br/><b>Depth:</b> <br/><b>Height:</b> <br/><hr/><h2>Ship's Communication numbers</h2><b>Sat Telex:</b> <br/><b>Sat Phone:</b> <br/><b>Sat Fax:</b> <br/><b>Mobile:</b> <br/></div><div id="shipwiki"><hr/><h2>Capacity</h2><b>Holds/Tanks:</b> <br/><b>Hatches:</b> <br/><b>Gear:</b> <br/><b>Bale:</b> <br/><b>Grain:</b> <br/><b>TEU:</b> <br/><b>PAX:</b> <br/><b>Cars:</b> <br/><b>Trucks:</b> <br/><b>RoRo Lanes Length:</b> <br/><b>Liquid Capacity:</b> <br/><b>Liquid Gas Capacity:</b> <br/><b>Oil Capacity:</b> <br/><b>Number of Pumps:</b> <br/><b>Pumps Cpacity:</b> <br/><hr/><h2>Engines</h2><b>Number of Main Engine(s):</b> <br/><b>Main Engine builder:</b> <br/><b>Main Model:</b> <br/><b>Main RPM:</b> <br/><b>Main power:</b>  / <br/><b>Main Fuel:</b> <br/><b>Main Consumption:</b> <br/><br/><b>Number of Auxiliary Engine(s):</b> <br/><b>Aux Engine builder:</b> <br/><b>Aux Model:</b> <br/><b>Aux RPM:</b> <br/><b>Aux power:</b>  / <br/><b>Aux Fuel:</b> <br/><b>Aux Consumption:</b> <br/><br/><b>Bowthruster:</b> <br/><b>Propeller(s):</b> <br/></br><hr/></div></div>
+<script type="text/javascript">
+//Reduce photo width for screens <1200px
+if(document.body.clientWidth<1200)
+    document.getElementById('picholder').style.width = '500px';
+</script>
+
+<script type="text/javascript">
+function showhide(id) {
+    var elem=document.getElementById(id);
+    if(elem.style.display=="none")
+        elem.style.display="block";
+    else
+        elem.style.display="none";
+}
+</script>
+
+
+</body>
+
+
+</html>
