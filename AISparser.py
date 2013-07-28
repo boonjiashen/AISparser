@@ -35,20 +35,16 @@ LOA (Length Overall):
 Beam:
 Draft (max):
     """.strip().splitlines()
-    soup = BeautifulSoup(src)
+    soup = BeautifulSoup(src, "lxml")
     boat_data = {}
-    for field in fields:
-        tags = [tag for tag in soup.find_all('b') if tag.string.find(field) != -1]
-#        tags = soup.find_all('b', text=re.compile(field))
-        # There are fields that are empty, sometimes don't even exist
-        # Empty field http://www.marinetraffic.com/ais/shipdetails.aspx?MMSI=538004700
-        # No field    http://www.marinetraffic.com/ais/shipdetails.aspx?MMSI=413854231
-        if len(tags) != 1:
-            continue
-        string = tags[0].nextSibling.string
+#    tags = soup.find_all(text=re.compile('|'.join(fields)))
+    tags = soup.find_all(text=fields)
+    for tag in tags:
+        string = unicode(tag.parent.nextSibling.string)
+        field = unicode(tag.string)
         if string.isspace() or not string:
             continue
-        elif is_number(string):
+        if is_number(string):
             value = float(string)
             if abs(value) < 0.1:
                 continue
@@ -117,28 +113,30 @@ def download_ships_from_catalog(src, download_folder='ships', verbose=False):
 if True:
     root_URL = 'http://www.marinetraffic.com/ais/'
 
-#    # Parses the downloaded ship pages
-#    folder = 'ships'
-#    ship_local_paths = [os.path.join(folder, filename)
-#        for (dirpath, dirnames, filenames) in os.walk(folder)
-#        for filename in filenames]
-#    ships_data = []
-#    for ship_local_path in ship_local_paths:
-#        with open(ship_local_path, 'r') as fid:
-#            ship_src = fid.read().decode('utf8')
-#        ship_data = get_ship_data(ship_src)
-#        print ship_local_path, len(ship_data.items())
-#        ships_data.append(ship_data)
-#
-#    ships_data = [x for x in ships_data if len(x.items()) == 5]
-#    plt.close('all')
-#    plt.figure()
-#    for ship_data in ships_data:
-#        length = ship_data['LOA (Length Overall):']
-#        draft = ship_data['Draft (max):']
-#        plt.plot(length, draft, 'r.')
-#    plt.show()
+    # Parses the downloaded ship pages
+    folder = 'ships'
+    ship_local_paths = [os.path.join(folder, filename)
+        for (dirpath, dirnames, filenames) in os.walk(folder)
+        for filename in filenames]
+    ships_data = []
+    for ship_local_path in ship_local_paths:
+        with open(ship_local_path, 'r') as fid:
+            ship_src = fid.read().decode('utf8')
+        ship_data = get_ship_data(ship_src)
+        print ship_local_path, len(ship_data.items())
+        ships_data.append(ship_data)
 
+    ships_data = [x for x in ships_data if len(x.items()) == 5]
+    plt.close('all')
+    plt.figure()
+    for ship_data in ships_data:
+        length = ship_data['LOA (Length Overall):']
+        draft = ship_data['Draft (max):']
+        plt.plot(length, draft, 'r.')
+    plt.xlabel('Length (m)')
+    plt.ylabel('Draft (m)')
+    plt.show()
+#
 #    # Downloads all the ship pages from downloaded catalog pages
 #    folder = 'C'
 #    for alphabet in list('DE'):
@@ -155,30 +153,30 @@ if True:
 ##    ship_links = [x for src in catalog_sources for link in get_ship_links]
 ##    print files
 
-    foo = 'http://www.marinetraffic.com/ais/datasheet.aspx?datasource=SHIPS_CURRENT&alpha='
-    alphabets = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    seed_URL = 'http://www.marinetraffic.com/ais/datasheet.aspx?datasource=SHIPS_CURRENT&alpha=C&mode='
-
-    # Goes through all catalogs of all beginning alphabets
-    next_URL = seed_URL
-    for alphabet in list(alphabets[4:]):
-        next_URL = re.sub('alpha=.', 'alpha=' + alphabet, seed_URL)
-        if not os.path.exists(alphabet):
-            os.mkdir(alphabet)
-
-        # Goes down the catalog of ships beginning with the same alphabet
-        while True:
-            print next_URL
-            src = get_src(next_URL)
-            download_ships_from_catalog(src, verbose=True)
-
-#            page_no = get_page_no(src)
-#            with open(os.path.join(alphabet, page_no), 'w') as fid:
-#                fid.write(src.encode('utf8'))
-            leaf_URL = get_next_page(src)
-            if not leaf_URL:
-                break
-            next_URL = root_URL + leaf_URL
+#    foo = 'http://www.marinetraffic.com/ais/datasheet.aspx?datasource=SHIPS_CURRENT&alpha='
+#    alphabets = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+#    seed_URL = 'http://www.marinetraffic.com/ais/datasheet.aspx?datasource=SHIPS_CURRENT&alpha=C&mode='
+#
+#    # Goes through all catalogs of all beginning alphabets
+#    next_URL = seed_URL
+#    for alphabet in list(alphabets[4:]):
+#        next_URL = re.sub('alpha=.', 'alpha=' + alphabet, seed_URL)
+#        if not os.path.exists(alphabet):
+#            os.mkdir(alphabet)
+#
+#        # Goes down the catalog of ships beginning with the same alphabet
+#        while True:
+#            print next_URL
+#            src = get_src(next_URL)
+#            download_ships_from_catalog(src, verbose=True)
+#
+##            page_no = get_page_no(src)
+##            with open(os.path.join(alphabet, page_no), 'w') as fid:
+##                fid.write(src.encode('utf8'))
+#            leaf_URL = get_next_page(src)
+#            if not leaf_URL:
+#                break
+#            next_URL = root_URL + leaf_URL
 
 
 ##    for name, leaf_URL in get_ship_links(src):
