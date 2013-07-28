@@ -24,17 +24,34 @@ def is_number(s):
     except ValueError:
         return False
 
-def get_ship_data(src):
-    """Returns ship data parsed from the source code of a ship page
-    """
+def get_first_word_as_float(string):
+    """Returns the first word in a string, cast as float"""
 
-    fields = """
-Length x Breadth:
-Draught:
-LOA (Length Overall):
-Beam:
-Draft (max):
-    """.strip().splitlines()
+    list_of_words = string.split()
+
+    return float(list_of_words[0])
+
+def parse_length_x_breadth(string):
+    """Parse the "Length x Breadth:" field"""
+
+    length = get_first_word_as_float(string)
+    breadth = get_first_word_as_float(string[string.find('X') + 1:])
+
+    return (length, breadth)
+
+# Defines the parsers for each field in ship specs page
+parser_dict = {
+"Length x Breadth:": parse_length_x_breadth,
+"Draught:": get_first_word_as_float,
+"LOA (Length Overall):": get_first_word_as_float,
+"Beam:": get_first_word_as_float,
+"Draft (max):": get_first_word_as_float,
+}
+fields = parser_dict.keys()
+
+def get_ship_data(src):
+    """Returns ship data parsed from the source code of a ship page"""
+
     soup = BeautifulSoup(src, "lxml")
     boat_data = {}
 #    tags = soup.find_all(text=re.compile('|'.join(fields)))
@@ -42,15 +59,9 @@ Draft (max):
     for tag in tags:
         string = unicode(tag.parent.nextSibling.string)
         field = unicode(tag.string)
-        if string.isspace() or not string:
+        if string.isspace() or not string or string.strip()[0] == '0':
             continue
-        if is_number(string):
-            value = float(string)
-            if abs(value) < 0.1:
-                continue
-        else:
-            value = string
-        boat_data[field] = value
+        boat_data[field] = parser_dict[field](string)
 
     return boat_data
 
@@ -109,34 +120,68 @@ def download_ships_from_catalog(src, download_folder='ships', verbose=False):
         except IOError:
             if verbose: stdout.write(' skipped due to IOError\n')
 
+def pickle_data_to_file(data, filename):
+    import cPickle as pickle
+    with open(filename, 'wb') as pkl:
+        pickle.dump(data, pkl, -1)
+
+def unpickle_from_file(filename):
+    import cPickle as pickle
+    with open(filename, 'rb') as pkl:
+        data = pickle.load(pkl)
+
+    return data
+
 #def main():
 if True:
     root_URL = 'http://www.marinetraffic.com/ais/'
 
-    # Parses the downloaded ship pages
-    folder = 'ships'
-    ship_local_paths = [os.path.join(folder, filename)
-        for (dirpath, dirnames, filenames) in os.walk(folder)
-        for filename in filenames]
-    ships_data = []
-    for ship_local_path in ship_local_paths:
-        with open(ship_local_path, 'r') as fid:
-            ship_src = fid.read().decode('utf8')
-        ship_data = get_ship_data(ship_src)
-        print ship_local_path, len(ship_data.items())
-        ships_data.append(ship_data)
+#    # Parses the downloaded ship pages
+#    folder = 'ships'
+#    ship_local_paths = [os.path.join(folder, filename)
+#        for (dirpath, dirnames, filenames) in os.walk(folder)
+#        for filename in filenames]
+#    ships_data = []
+#    for ship_local_path in ship_local_paths:
+#        with open(ship_local_path, 'r') as fid:
+#            ship_src = fid.read().decode('utf8')
+#        ship_data = get_ship_data(ship_src)
+#        print ship_local_path, len(ship_data.items())
+#        ships_data.append(ship_data)
 
-    ships_data = [x for x in ships_data if len(x.items()) == 5]
-    plt.close('all')
-    plt.figure()
+    ships_data = unpickle_from_file('ships_data.pkl')
+    points = []
     for ship_data in ships_data:
-        length = ship_data['LOA (Length Overall):']
-        draft = ship_data['Draft (max):']
-        plt.plot(length, draft, 'r.')
+        length_key = "LOA (Length Overall):" 
+        draft_key = "Draught:"
+        if length_key not in ship_data.keys() or draft_key not in ship_data.keys():
+            continue
+        length = ship_data[length_key]
+        draft = ship_data[draft_key]
+        if length > 400 or draft > 30:
+            continue
+        points.append((length, draft))
+
+    downscale = 3
+    int_matrix = (np.vstack(points) / downscale).astype(np.uint64)
+    length = int_matrix[:, 0]
+    draft = int_matrix[:, 1]
+    cdf = [[np.sum((length == j) & (draft == i)) for i in range(400 / downscale)]
+        for j in range(30 / downscale)]
+    cdf = np.array(cdf)
+
+    plt.close('all')
+    plt.figure('image ' + str(cdf.shape))
+    plt.imshow(cdf, interpolation='nearest')
+
+    plt.figure('Scatter plot')
+    x, y = zip(*points)
+    plt.plot(x, y, 'r.')
     plt.xlabel('Length (m)')
     plt.ylabel('Draft (m)')
     plt.show()
-#
+
+
 #    # Downloads all the ship pages from downloaded catalog pages
 #    folder = 'C'
 #    for alphabet in list('DE'):
